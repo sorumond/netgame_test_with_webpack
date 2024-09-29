@@ -21,7 +21,7 @@ export class SpaceShip extends Unit {
 
     moveRight(speed) {
         const { app } = this;
-        if (this.x + this.width + speed < app.screen.width) {
+        if (this.x + this.width / 2 + speed < app.screen.width) {
             this.x += speed;
         }
     }
