@@ -9,16 +9,11 @@ module.exports = merge(common, {
         hot: true,
         static: [
             {
-                directory: path.join(__dirname, 'build/js'),
-                publicPath: '/js/',
-                watch: true
-            },
-            {
-                directory: path.join(__dirname, 'public'),
+                directory: path.join(__dirname, 'build'),
                 publicPath: '/',
                 watch: true
             }
         ],
-        watchFiles: ['src/*.js']
+        watchFiles: ['src/index.js']
     }
 });
