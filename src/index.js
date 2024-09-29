@@ -5,6 +5,10 @@ import Player from "./objects/player";
 import Asteroid from "./objects/asteroid";
 import { hitCheck } from "./utils/utils";
 import Boss from "./objects/boss";
+import backgroundImage from './images/background.jpg';
+import playerImage from './images/player.png';
+import bossImage from './images/boss.png';
+import asteroidImage from './images/asteroid.webp';
 
 (async () => {
     const app = new Application();
@@ -23,23 +27,23 @@ import Boss from "./objects/boss";
     let isGameStarted = false;
     let level = 1;
 
-    const canvasBackgroundTexture = await Assets.load('/images/background.jpg');
+    const canvasBackgroundTexture = await Assets.load(backgroundImage);
     const canvasBackground = new Sprite(canvasBackgroundTexture);
     canvasBackground.width = app.canvas.width;
     canvasBackground.height = app.canvas.height;
 
     app.stage.addChild(canvasBackground);
 
-    const texture = await Assets.load('/images/player.png');
+    const texture = await Assets.load(playerImage);
     const player = new Player({ app, texture });
     player.spawn();
 
-    const bossTexture = await Assets.load('/images/boss.png');
+    const bossTexture = await Assets.load(bossImage);
     const boss = new Boss({ app, texture: bossTexture, health: 4 });
     boss.spawn();
     boss.visible = false;
 
-    const asteroidTexture = await Assets.load('/images/asteroid.webp');
+    const asteroidTexture = await Assets.load(asteroidImage);
     let asteroids = [];
     function spawnAsteroids() {
         for (let i = 0; i < 5; i++) {
